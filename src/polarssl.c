@@ -334,6 +334,7 @@ static mrb_value mrb_ssl_handshake(mrb_state *mrb, mrb_value self) {
     } else if (ret == MBEDTLS_ERR_SSL_WANT_WRITE) {
       mrb_raise(mrb, E_NETWANTWRITE, "ssl_handshake() returned MBEDTLS_ERR_SSL_WANT_WRITE");
     } else {
+      printf("return code %d", ret);
       mrb_raise(mrb, E_SSL_ERROR, "ssl_handshake() returned E_SSL_ERROR");
     }
   }
